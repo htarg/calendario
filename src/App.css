@@ -2,21 +2,16 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+textarea {
+  width: 100%;
+  resize: none;
+  border-radius: 1em;
+  height: 23em;;
+  max-height: 40%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+.textwrapper {
+  height:50%;
+  margin: 5px 0;
+  padding: 3px;
 }
