@@ -1,6 +1,7 @@
 {
   "name": "calendario",
   "version": "0.1.0",
+  "hommepage": "http://htarg.github.io/calendario",
   "private": true,
   "dependencies": {
     "moment": "^2.24.0",
