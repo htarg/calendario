@@ -8,3 +8,15 @@ function replacer(match, date, offset, string) {
 }
 
 export const convert = text => text.replace(DATE_REGEX, replacer);
+
+export const copyTextByElementId = (elementId, originElementId) => {
+  const element = document.getElementById(elementId);
+
+  element.select();
+  element.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  document.execCommand('copy');
+
+  const originElement = document.getElementById(originElementId);
+  originElement.focus();
+};
