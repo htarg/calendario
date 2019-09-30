@@ -3,7 +3,7 @@ import { ToastsContainer, ToastsContainerPosition, ToastsStore } from 'react-toa
 
 import './App.css';
 import CustomTextArea from './components/CustomTextArea';
-import { convert, copyTextByElementId } from './utils';
+import { convert, copyTextByElementAndRefocus } from './utils';
 
 const INPUT_ELEMENT_ID = 'input';
 const OUTPUT_ELEMENT_ID = 'output';
@@ -13,14 +13,19 @@ function App() {
   const [output, setOutput] = useState('');
 
   useEffect(() => {
-    setOutput(convert(input));
+    if (input.length) {
+      setOutput(convert(input));
+    }
   }, [input]);
 
   useEffect(() => {
-    copyTextByElementId(OUTPUT_ELEMENT_ID, INPUT_ELEMENT_ID);
-    const timeout = setTimeout(() => {
-      ToastsStore.success('Listo! El output fue copiado al portapapeles');
-    }, 1000);
+    let timeout;
+    if (output.length) {
+      copyTextByElementAndRefocus(OUTPUT_ELEMENT_ID);
+      timeout = setTimeout(() => {
+        ToastsStore.success('Listo! El output fue copiado al portapapeles');
+      }, 1000);
+    }
     return () => clearTimeout(timeout);
   }, [output]);
 
