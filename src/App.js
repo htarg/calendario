@@ -20,8 +20,8 @@ function App() {
 
   useEffect(() => {
     let timeout;
+    copyTextByElementAndRefocus(OUTPUT_ELEMENT_ID);
     if (output.length) {
-      copyTextByElementAndRefocus(OUTPUT_ELEMENT_ID);
       timeout = setTimeout(() => {
         ToastsStore.success('Listo! El output fue copiado al portapapeles');
       }, 1000);
